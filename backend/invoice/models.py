@@ -21,5 +21,8 @@ class Invoice(models.Model):
     new_parts = models.BooleanField()
     notes = models.TextField()
     completed = models.BooleanField()
-    completed_date = models.DateField()
+    completed_date = models.DateField(null=True, blank=True)
+
+    def __str__(self) -> str:
+        return self.email
 
