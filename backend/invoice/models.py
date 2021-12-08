@@ -19,7 +19,7 @@ class Invoice(models.Model):
     antivirus = models.BooleanField()
     dust = models.BooleanField()
     new_parts = models.BooleanField()
-    notes = models.TextField()
+    notes = models.TextField(blank=True)
     completed = models.BooleanField()
     completed_date = models.DateField(null=True, blank=True)
 
