@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import { Link } from 'react-router-dom'
 import './App.css';
 
 function App() {
@@ -8,10 +8,7 @@ function App() {
         <nav>
           <span className="navbar-brand">Pc Build Invoice</span>
           <ul>
-            <li>
-              <a href="#">Login</a>
-            </li>
-            <li><a href="#">Register</a></li>
+            <li><Link to="/invoices">Invoices</Link></li>
           </ul>
         </nav>
       </header>
