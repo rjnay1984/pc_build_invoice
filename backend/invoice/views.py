@@ -9,8 +9,14 @@ from .models import Invoice
 
 class InvoiceViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows invoices to be viewed.
+    API endpoint that allows invoices to be viewed/added/updated/deleted.
     """
-    queryset = Invoice.objects.all()
     serializer_class = InvoiceSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Invoice.objects.filter(owner=user)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)

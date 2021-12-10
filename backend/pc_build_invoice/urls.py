@@ -19,7 +19,7 @@ from rest_framework import routers
 from invoice import views
 
 router = routers.DefaultRouter()
-router.register(r'invoices', views.InvoiceViewSet)
+router.register(r'invoices', views.InvoiceViewSet, basename='invoice')
 
 urlpatterns = [
     path('', include(router.urls)),
