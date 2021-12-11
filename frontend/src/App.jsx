@@ -1,17 +1,25 @@
-import { Link } from 'react-router-dom'
 import './App.css';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Home from './Home';
+import InvoiceDetail from './InvoiceDetail';
+import InvoiceList from './InvoiceList';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <nav>
-          <span className="navbar-brand">Pc Build Invoice</span>
-          <ul>
-            <li><Link to="/invoices">Invoices</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <BrowserRouter>
+        <header>
+          <Navbar />
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/invoices" element={<InvoiceList />} />
+          <Route path="/invoices/:invoiceId" element={<InvoiceDetail />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
